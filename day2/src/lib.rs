@@ -1,6 +1,8 @@
 /* use lazy_static::lazy_static;
 use regex::Regex; */
 
+
+//Create a struct to host the password and its constraints
 pub struct Password{
     password: String,
     range: (usize,usize),
@@ -8,6 +10,7 @@ pub struct Password{
 }
 
 impl Password{
+    //Builder for Password that takes a string, parses it and return a struct Password
     pub fn new(line:&str) -> Password{
         // line format = rangeStart-rangeEnd char: string
         // e.g.:         1-3 a: abcde
@@ -33,6 +36,7 @@ impl Password{
             password: String::from(parts[2]),
         }
     }
+    //Getter to use in the tests, had to comment them cause of warning in ide (cause they weren't used in main) 
     /* fn get_password(&self) -> &String {
         &self.password
     }
@@ -42,6 +46,8 @@ impl Password{
     fn get_letter(&self) -> char {
         self.letter
     } */
+
+    //Checks if a Password respects its own constraints (self.range.0<=number of self.letter<=self.range.1)
     fn validity(&self) -> bool{
         //let mut n = 0;
         /* for c in self.password.chars(){
@@ -52,12 +58,15 @@ impl Password{
         let n = self.password.chars().fold(0, |acc,c| if c==self.letter {acc+1} else {acc});
         n>=self.range.0 && n<=self.range.1
     }
+
+    //Checks if a Passowrd respects its own correct constraint (exactly one of the given positions must contain the given letter)
     fn correct_validity(&self) -> bool{
         let chars:Vec<char> = self.password.chars().collect();
         (chars[self.range.0-1]==self.letter) ^ (chars[self.range.1-1]==self.letter)
     }
 }
 
+//Takes the input from the puzzle and return the number that respect their constraint 
 pub fn check_all_pass_val(s: &String) -> i32{
     /* let mut n_valid = 0;
     for line in s.lines(){
@@ -69,6 +78,8 @@ pub fn check_all_pass_val(s: &String) -> i32{
     } */
     s.lines().fold(0, |acc, s|if Password::new(s).validity() {acc+1} else {acc})
 }
+
+//Takes the input from the puzzle and return the number that respect their correct constraint
 pub fn check_all_pass_correct_val(s: &String) -> i32{
     /* let mut n_valid = 0;
     for line in s.lines(){
@@ -84,7 +95,7 @@ pub fn check_all_pass_correct_val(s: &String) -> i32{
 }
 
 
-
+//Some random tests
 #[cfg(test)]
 mod tests {
     use super::*;

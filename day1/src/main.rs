@@ -5,8 +5,10 @@ use day1;
 fn main() {
     //println!("{:?}",string_to_vec_int32(&read_file_args()));
     let input = string_to_vec_int32(&read_file_args());
+
     let res1 = day1::find2020_multiply(&input);
     let res2 = day1::find2020_three_multiply(&input);
+    
     println!("Part 1 result: {}",res1);
     println!("Part 2 result: {}",res2);
 }

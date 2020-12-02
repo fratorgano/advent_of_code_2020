@@ -1,3 +1,4 @@
+//Both of these are expensive, it can be done with less than O(n^2) and O(n^3) respectively
 pub fn find2020_multiply(numbers:&Vec<i32>) -> i32{
     //let first = numbers[0];
     for i in numbers{
