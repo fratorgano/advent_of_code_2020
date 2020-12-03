@@ -1,5 +1,5 @@
 # Advent of code 2020 in Rust
-I'm learning a bit of rust and I decided to give the [Aoc-2020](https://adventofcode.com/2020) challenge a try in this language.
+I'm learning a bit of rust and I decided to give the [Aoc-2020](https://adventofcode.com/2020) challenge a try.
 
 The solutions won't be pretty or fast but I'll try my best!
 
