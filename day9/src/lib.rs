@@ -1,3 +1,6 @@
+// I tried to work with indexes only and it actually worked! (had a couple of off by one but was mostly fine)
+
+
 pub fn find_wrong_cipher_number(numbers:&Vec<usize>, preamble_length: usize) -> usize{
     let mut found = false;
     for i in preamble_length..numbers.len(){
