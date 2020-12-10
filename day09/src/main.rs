@@ -6,11 +6,11 @@ fn main() {
     let input = string_to_vec_usize(&read_file_args());
 
     let start = Instant::now();
-    let res1 = day9::find_wrong_cipher_number(&input,25);
+    let res1 = day09::find_wrong_cipher_number(&input,25);
     println!("Finished after {:?}", start.elapsed());
 
     let start = Instant::now();
-    let res2 = day9::find_encryption_weakness(&input,25);
+    let res2 = day09::find_encryption_weakness(&input,25);
     println!("Finished after {:?}", start.elapsed());
 
     println!("Part 1 result: {}",res1);
