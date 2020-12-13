@@ -42,9 +42,12 @@ pub fn find_best_timestamp(buses:&Vec<&str>) -> usize{
     // (T+v)%k if this equals 0 it means that we found a value for T that works for the couple(k,v)
 
     for (k,v) in ids{
+        //println!("Considering k = {}, v = {}",k,v);
         while (min_val+v)%k !=0{
+            //println!("Incrementing T({}) by {}",min_val,running_product);
             min_val+=running_product
         }
+        //println!("Found ({}+{})%{}=={}, proceding with new values, now I'll increment by a multiple of {}",min_val,v,k,(min_val+v)%k,k);
         running_product*=k;
     }
     min_val
@@ -66,6 +69,6 @@ mod tests {
     #[test]
     fn day12_test_2() {
         let buses = vec!["17","x","13","19"];
-        assert_eq!(3416, find_best_timestamp(&buses));
+        assert_eq!(3417, find_best_timestamp(&buses));
     }
 }
