@@ -92,12 +92,12 @@ mod tests {
     #[test]
     fn day22_test() {
         let input = vec![3,8,9,1,2,5,4,6,7];
-        assert_eq!("67384529",cup_ordering(input, 100).trim());
+        assert_eq!("67384529",cup_ordering(&input, 100).trim());
     }
 
     #[test]
     fn day22_test_2() {
         let input = vec![3,8,9,1,2,5,4,6,7];
-        assert_eq!(149245887792,cup_ordering_2(input, 10_000_000));
+        assert_eq!(149245887792,cup_ordering_2(&input, 10_000_000));
     }
 }
